@@ -34,3 +34,143 @@
         body::before {
             content: "";
             position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,86,179,0.05) 0%, transparent 70%);
+            animation: moveBg 15s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveBg {
+            0% { transform: translate(-25%, -25%); }
+            100% { transform: translate(0%, 0%); }
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            padding: 40px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .logo-wrapper {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            color: #1a202c;
+        }
+
+        /* 2. Hiệu ứng chữ chạy ngang từng chữ cái */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(0, 86, 179, 0.08);
+            margin: 25px 0;
+            padding: 10px 0;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 8px;
+            animation: marquee 6s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* 3. Dòng chuyển hướng và link trực tiếp */
+        .redirect-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .direct-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .direct-link:hover {
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <script>
+        const TARGET_URL = "https://script.google.com/macros/s/AKfycbwQPXqZ6ipeG8Da61XtGxKhgELnNRkSyykJe47-FOV8evnEA5q7xwsLt5G8gfRwa9XP/exec";
+        
+        window.onload = function() {
+            // Tăng thời gian đợi lên 3 giây để nhân viên thấy hiệu ứng thương hiệu
+            setTimeout(function() {
+                window.location.href = TARGET_URL;
+            }, 3000); 
+        };
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="https://lh3.googleusercontent.com/d/1Qc5IIBCQHb9qlxsDcbiYZcBI7iQHNVaZ" 
+                 alt="DaRo Company Logo" 
+                 class="logo">
+        </div>
+        
+        <h1>DARO MANAGEMENT HUB</h1>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Hệ thống quản lý ứng dụng nội bộ</p>
+        
+        <div class="marquee-container">
+            <div class="marquee-text">
+                ĐÀ RỒNG &nbsp;&nbsp;&nbsp; ĐÀ RỒNG &nbsp;&nbsp;&nbsp; ĐÀ RỒNG &nbsp;&nbsp;&nbsp; ĐÀ RỒNG &nbsp;&nbsp;&nbsp; ĐÀ RỒNG
+            </div>
+        </div>
+        
+        <div class="redirect-text">
+            Hệ thống tự động chuyển hướng, hoặc <br>
+            <a href="https://script.google.com/macros/s/AKfycbwQPXqZ6ipeG8Da61XtGxKhgELnNRkSyykJe47-FOV8evnEA5q7xwsLt5G8gfRwa9XP/exec" class="direct-link">
+                Bấm tại đây
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
